@@ -164,7 +164,7 @@
       // preloader.remove()
       setTimeout(() => {
         preloader.remove();
-      }, 1000);
+      }, 2500);
     });
   }
 
