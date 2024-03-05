@@ -36,7 +36,7 @@ h6 {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
-#preloader {
+/* #preloader {
   position: fixed;
   top: 0;
   left: 0;
@@ -69,7 +69,170 @@ h6 {
   100% {
     transform: rotate(360deg);
   }
+} */
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #4750ff;
 }
+
+#preloader .ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: calc(50% - 10px); /* Adjusted to vertically center the ball */
+  left: calc(50% - 10px); /* Adjusted to horizontally center the ball */
+  animation: bounce 3s cubic-bezier(1, 0, 0, 1) infinite;
+  background: #fff; /* Color of the ball */
+  border-radius: 50%; /* To make the ball circular */
+}
+
+#preloader .shape {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: calc(50% - 150px); /* Adjusted to horizontally center the shape */
+  top: calc(50% - 75px); /* Adjusted to vertically center the shape */
+  animation: shapes2 3s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  14.25% {
+    transform: translateY(-150px);
+  }
+  28.5% {
+    transform: translateY(-7.5px);
+  }
+  42.75% {
+    transform: translateY(-170px);
+  }
+  57% {
+    transform: translateY(-27.5px);
+  }
+  71.25% {
+    transform: translateY(-180px);
+  }
+  80% {
+    transform: translateY(-35px);
+  }
+  90% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes shapes2 {
+  0% {
+    transform: rotate(90deg) translateX(-20px);
+  }
+  14.25% {
+    transform: rotate(90deg) translateX(-20px);
+  }
+  28.5% {
+    transform: rotate(135deg);
+  }
+  42.75% {
+    transform: rotate(162deg);
+  }
+  57% {
+    transform: rotate(180deg);
+  }
+  71.25% {
+    transform: rotate(245.5deg);
+  }
+  80% {
+    transform: rotate(336.5deg);
+  }
+  100% {
+    transform: rotate(90deg) translateX(-20px);
+  }
+}
+
+#preloader .shape:before,
+#preloader .shape:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #fdb20f;
+  animation: shapes 3s ease-in-out infinite;
+  clip-path: polygon(20% 21%, 50% 8%, 80% 21%, 90% 50%, 80% 80%, 50% 91%, 21% 79%, 8% 51%);
+}
+
+#preloader .shape:after {
+  width: 90%;
+  height: 90%;
+  background: repeating-linear-gradient(to right, #fff, #fff 2px, #fdb20f 2px, #fdb20f 5px);
+  top: 5%;
+  left: 5%;
+  background-position: 20px 30px;
+}
+
+@keyframes shapes{
+  0%{
+    clip-path: polygon(91% 50%, 91% 50%, 29% 86%, 30% 86%, 30% 86%, 30% 86%, 30% 14%, 30% 14%);
+    background-position:20px 30px;
+  }
+  14.25%{
+    clip-path: polygon(91% 50%, 91% 50%, 29% 86%, 30% 86%, 30% 86%, 30% 86%, 30% 14%, 30% 14%);
+    background-position:120px 30px;
+  }
+  28.5%{
+    clip-path: polygon(91% 50%, 91% 50%, 50% 91%, 50% 91%, 50% 91%, 50% 91%, 9% 50%, 50% 9%);
+    background-position:20px 30px;
+  }
+  42.75%{
+    clip-path: polygon(63% 11%, 91% 50%, 63% 89%, 63% 89%, 63% 89%, 63% 89%, 16% 74%, 16% 26%);
+    background-position:-120px 30px;
+  }
+  57%{
+    clip-path: polygon(29% 14%, 71% 14%, 91% 50%, 91% 50%, 71% 86%, 71% 86%, 30% 86%, 9% 50%);
+    background-position:20px 30px;
+  }
+  71.25%{
+    clip-path: polygon(13% 32%, 41% 10%, 76% 18%, 91% 50%, 76% 83%, 76% 83%, 41% 90%, 13% 68%);
+    background-position:120px 30px;
+  }
+  80%{
+    clip-path: polygon(20% 21%, 50% 8%, 80% 21%, 90% 50%, 80% 80%, 50% 91%, 21% 79%, 8% 51%);
+    background-position:20px 30px;
+  }
+  83%{
+    clip-path: polygon(13% 32%, 41% 10%, 76% 18%, 91% 50%, 76% 83%, 76% 83%, 41% 90%, 13% 68%);
+    background-position:20px 30px;
+  }
+  86%{
+    clip-path: polygon(29% 14%, 71% 14%, 91% 50%, 91% 50%, 71% 86%, 71% 86%, 30% 86%, 9% 50%);
+    background-position:20px 30px;
+  }
+  89%{
+    clip-path: polygon(63% 11%, 91% 50%, 63% 89%, 63% 89%, 63% 89%, 63% 89%, 16% 74%, 16% 26%);
+    background-position:20px 30px;
+  }
+  92%{
+    clip-path: polygon(91% 50%, 91% 50%, 50% 91%, 50% 91%, 50% 91%, 50% 91%, 9% 50%, 50% 9%);
+  }
+  95%{
+    clip-path: polygon(91% 50%, 91% 50%, 29% 86%, 30% 86%, 30% 86%, 30% 86%, 30% 14%, 30% 14%);
+  }
+  100%{
+    clip-path: polygon(91% 50%, 91% 50%, 29% 86%, 30% 86%, 30% 86%, 30% 86%, 30% 14%, 30% 14%);
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -387,8 +550,26 @@ h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background: #FF6C22;
+  /* background: #FF6C22; */
+  position: relative;
+  overflow: hidden;
 }
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 #hero .container {
   padding-top: 72px;
@@ -887,7 +1068,7 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(rgba(40, 58, 90, 0.9), rgba(40, 58, 90, 0.9)), url("../img/cta-bg.jpg") fixed center center;
+  background: linear-gradient(#ff900921, #ff900921), url("../img/cta-bg.jpg") fixed center center;
   background-size: cover;
   padding: 120px 0;
 }
